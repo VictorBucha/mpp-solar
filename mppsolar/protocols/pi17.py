@@ -716,7 +716,7 @@ COMMANDS = {
     },
     "MUCHGC": {
         "name": "MUCHGC",
-        "description": "Set battery charge current",
+        "description": "Set battery AC charge current",
         "help": " -- examples: MUCHGC0600 (Current in mA xxxx)",
         "type": "SETTER",
         "response": [
@@ -727,6 +727,20 @@ COMMANDS = {
             b"^0\x1b\xe3\r",
         ],
         "regex": "MUCHGC([012]\d\d\d)$",
+    },
+    "MCHGC": {
+        "name": "MCHGC",
+        "description": "Set battery max charge current",
+        "help": " -- examples: MCHGC0600 (Current in mA xxxx)",
+        "type": "SETTER",
+        "response": [
+            ["ack", "Command execution", {"NAK": "Failed", "ACK": "Successful"}],
+        ],
+        "test_responses": [
+            b"^1\x0b\xc2\r",
+            b"^0\x1b\xe3\r",
+        ],
+        "regex": "MCHGC([012]\d\d\d)$",
     },
     "SEP": {
         "name": "SEP",

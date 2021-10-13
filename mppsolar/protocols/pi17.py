@@ -756,6 +756,20 @@ COMMANDS = {
         ],
         "regex": "SEP(0[012])$",
     },
+    "BATDV": {
+        "name": "BATDV",
+        "description": "Set battery discharge voltages",
+        "help": " -- examples: BATDV0460,0476,0500,0525 ( All voltages in 0.1V as 0xxx)",
+        "type": "SETTER",
+        "response": [
+            ["ack", "Command execution", {"NAK": "Failed", "ACK": "Successful"}],
+        ],
+        "test_responses": [
+            b"^1\x0b\xc2\r",
+            b"^0\x1b\xe3\r",
+        ],
+        "regex": "BATDV(0\d\d\d,0\d\d\d,0\d\d\d,0\d\d\d)$",
+    },
     "BDCM": {
         "name": "BDCM",
         "description": "Battery discharge max current in hybrid mode",
